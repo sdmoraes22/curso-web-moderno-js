@@ -8,5 +8,5 @@ function tag(partes, ...valores) {
 const aluno = 'Gui'
 const situacao = 'Aprovado'
 
-console.log(tag `${aluno} está ${situacao}`)
+console.log(tag `${aluno} está ${situacao}.`)
 
