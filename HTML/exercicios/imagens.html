@@ -40,11 +40,54 @@
 </div>
 
 <script>
-    const slider = document.querySelectorAll('[wm-slider] p')
-    slider.forEach(slide => {
-        display = slide.style.display = 'inline'
-        
-    }, 6000)
+    function mover(elem, inicio, fim, passo, callback){
+        const novoInicio = inicio - passo
+        if (novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+        } else {
+            callback()
+        }
+    }
+
+    // const slider = document.querySelectorAll('[wm-slider] > p').forEach(p =>{
+    //     slider.style.display = 'block'
+    //     mover(slider, 1500, -520, 5, () => {
+    //     console.log('Terminou')
+    //     })
+    // })
+
+    function slider() {
+        const elementos = document.querySelectorAll('[wm-slider] > p')
+        const slides = Array.from(elementos)
+        exibirSlide(slides, slides[0])
+    }
+
+    function exibirSlide(slides, slide) {
+        slide.style.display = 'block'
+
+        const inicio = innerWidth
+        const fim = -slide.clientWidth
+
+        slide.style.left = `${inicio}px`
+
+        mover(slide, inicio, fim, 5,() => {
+            slide.style.display = 'none'
+            exibirSlide(slides, getProximo(slides, slide))
+        })
+    }
+
+    function getProximo(lista, atual) {
+        const i = lista.indexOf(atual) + 1
+        return i < lista.length ? lista[i]: lista[0] 
+    }
+
+    slider()
+    
+    // 
+    // slider.forEach(slide => {
+    // display = slide.style.display = 'inline'
+    // }, 3000)
 </script>
 
 <style>
