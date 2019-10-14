@@ -5,8 +5,40 @@
     <meta charset="UTF-8">
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
-    <style>
-        /* ... */
+    <style>        
+        /* * - Seletor Geral */
+
+        /* .tag - Seletor de Classe */
+
+        /* #aprovados - Seletor de Id */
+        
+        /* #aninhado > div  - Seletor de Filho direto */
+
+        /* #aninhado section - Seletor de filho geral */
+        
+        /* p + ul - Seletor de irmão */
+
+        /* p ~ ol - Seletor de irmão generalizado */
+
+        /* [feira] - Seletor de propriedade */
+
+        /* [feira = escritorio] =  - Seletor de propriedade e atributo */
+
+        /* [feira ~= escritorio] =  - Seletor de propriedade e atributo aproximado considerando separação de espaço */
+
+        /* [feira *= sa] =  - Seletor de propriedade e atributo aproximado */
+        
+        /* span:nth-child(1) - Seletor de primeiro filho do tipo */
+        
+        /* section > :nth-child(odd) section > :nth-child(even) - Filhos pares ou impares */
+
+        /* section > span:nth-of-type(2) - Elemento filho do tipo */
+
+        section > span:nth-of-type(2) {
+         color: #ff0;
+            background-color: #f77;
+        }
+        
     </style>
 </head>
 
@@ -29,7 +61,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag nolabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>
